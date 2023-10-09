@@ -5,16 +5,18 @@ from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
+
+GENDER_CHOICES = (
+    ("Male", "Male"),
+    ("Female", "Female")
+)
         
 class Patient(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, max_length=40)
     name= models.CharField(max_length=20)
     date_of_birth = models.DateField()
     age = models.PositiveIntegerField()
-    GENDER_MALE = 0
-    GENDER_FEMALE = 1
-    GENDER_CHOICES = [(GENDER_MALE, 'Male'), (GENDER_FEMALE, 'Female')]
-    gender = models.IntegerField(choices=GENDER_CHOICES)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=10)
     country = models.CharField(max_length=100,)
     phone_number = models.CharField(max_length=11)
     address = models.TextField()
