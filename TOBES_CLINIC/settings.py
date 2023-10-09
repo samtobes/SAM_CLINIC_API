@@ -92,7 +92,7 @@ REST_FRAMEWORK = {
 DATABASES = {     
 'default': {
  'ENGINE': 'django.db.backends.postgresql_psycopg2',
- 'NAME': 'CLINIC',
+ 'NAME': 'CLINIC2',
  'USER': 'postgres',
  'PASSWORD': config('POSTGRES_PASSWORD'),
  'HOST': 'localhost',
